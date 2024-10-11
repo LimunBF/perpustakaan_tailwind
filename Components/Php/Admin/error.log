@@ -1,0 +1,139 @@
+[2024-10-09 08:58:26] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 08:58:26] Deleting book with ID: null
+[2024-10-09 08:58:26] Delete successful for book ID: null
+[2024-10-09 08:58:34] Received POST request: Array
+(
+    [isbn] => 
+    [judul] => 
+    [penulis] => 
+    [genre] => 
+    [publisher] => 
+    [tahun] => 
+    [jumlah] => 
+    [action] => edit
+    [bookId] => null
+)
+
+[2024-10-09 08:58:34] Editing book with ID: null
+[2024-10-09 08:58:34] Edit successful for book ID: null
+[2024-10-09 08:59:52] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 08:59:52] Deleting book with ID: null
+[2024-10-09 08:59:52] Delete successful for book ID: null
+[2024-10-09 08:59:55] Received POST request: Array
+(
+    [isbn] => 
+    [judul] => 
+    [penulis] => 
+    [genre] => 
+    [publisher] => 
+    [tahun] => 
+    [jumlah] => 
+    [action] => edit
+    [bookId] => null
+)
+
+[2024-10-09 08:59:55] Editing book with ID: null
+[2024-10-09 08:59:55] Edit successful for book ID: null
+[2024-10-09 09:02:00] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 09:02:00] Deleting book with ID: null
+[2024-10-09 09:02:00] Delete successful for book ID: null
+[2024-10-09 09:02:02] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 09:02:02] Deleting book with ID: null
+[2024-10-09 09:02:02] Delete successful for book ID: null
+[2024-10-09 09:02:08] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 09:02:08] Deleting book with ID: null
+[2024-10-09 09:02:08] Delete successful for book ID: null
+[2024-10-09 09:02:10] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 09:02:10] Deleting book with ID: null
+[2024-10-09 09:02:10] Delete successful for book ID: null
+[2024-10-09 09:02:12] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 09:02:12] Deleting book with ID: null
+[2024-10-09 09:02:12] Delete successful for book ID: null
+[2024-10-09 09:02:16] Received POST request: Array
+(
+    [isbn] => 
+    [judul] => 
+    [penulis] => 
+    [genre] => 
+    [publisher] => 
+    [tahun] => 
+    [jumlah] => 
+    [action] => edit
+    [bookId] => null
+)
+
+[2024-10-09 09:02:16] Editing book with ID: null
+[2024-10-09 09:02:16] Edit successful for book ID: null
+[2024-10-09 09:08:49] Received POST request: Array
+(
+    [action] => delete
+    [bookId] => null
+)
+
+[2024-10-09 09:08:49] Deleting book with ID: null
+[2024-10-09 09:08:49] Delete successful for book ID: null
+[2024-10-09 09:08:54] Received POST request: Array
+(
+    [isbn] => 
+    [judul] => 
+    [penulis] => 
+    [genre] => 
+    [publisher] => 
+    [tahun] => 
+    [jumlah] => 
+    [action] => edit
+    [bookId] => null
+)
+
+[2024-10-09 09:08:54] Editing book with ID: null
+[2024-10-09 09:08:54] Edit successful for book ID: null
+[2024-10-09 09:08:56] Received POST request: Array
+(
+    [isbn] => 
+    [judul] => 
+    [penulis] => 
+    [genre] => 
+    [publisher] => 
+    [tahun] => 
+    [jumlah] => 
+    [action] => edit
+    [bookId] => null
+)
+
+[2024-10-09 09:08:56] Editing book with ID: null
+[2024-10-09 09:08:56] Edit successful for book ID: null

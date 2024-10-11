@@ -1,0 +1,49 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #f093fb;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgb(245, 87, 108))
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+.back{
+    justify-content: left;
+    text-align: left;
+}
+.submit {
+    justify-content: center;
+    text-align: center;
+    top: 50%;
+    left: 55%;
+    /* transform: translate(-50%, -50%); */
+}
+.form-control{
+    background-color: azure;
+    border: 2px solid transparent;
+    border-image: linear-gradient(to right, #f193fb9c, #f5576cb2) 2;
+}
+.btn-back{
+    padding: 5px;
+    border: 2px solid #e14e7f ; 
+    border-radius: 5px; 
+    background-color: #F36A98;
+}
+.btn-registrasi{
+    width: fit-content;
+    background-color: #f07448;
+    border: 2px solid #e16437 ; 
+    border-radius: 5px; 
+}
