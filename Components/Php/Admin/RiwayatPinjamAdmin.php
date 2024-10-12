@@ -1,5 +1,9 @@
 <?php
-    include '../../Connection/DBConnection.php'
+    include '../../Connection/DBConnection.php';
+    include '../../Php/Admin/DeleteHistory.php';
+?>
+<?php
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -29,24 +33,26 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mb-2 mb-lg-0 me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="HomeLay.php">Beranda</a>
+                        <a class="nav-link" href="HomeAdminLay.php">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Peminjaman.php">Peminjaman Buku</a>
+                        <a class="nav-link"  href="RegisterBook.php">Penambahan Buku</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="RiwayatPinjam.php">Riwayat Peminjaman</a>
+                        <a class="nav-link active" aria-current="page" href="RiwayatPinjamAdmin.php">Riwayat Peminjaman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="RegistrasiUser.php">Registrasi User</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/perpustakaan_tailwind/Components/Php/LoginAdmin.php">Login Admin</a>
+                        <a class="nav-link" href="../User/HomeLay.php">LogOut</a>
                     </li>
                 </ul>
-                <span class="navbar-text pe-4 font-nav-admin" style="font-size: large;">
-                    USER
-                </span>
+                <span class="navbar-text pe-4 font-nav-admin" style="font-size:large">
+                        Admin :
+                        <?php if (isset($_SESSION['username'])) {
+                            echo $_SESSION['username'];
+                        } else {
+                            echo 'Guest';
+                        } ?>
+                    </span>
             </div>
         </div>
     </nav>
@@ -71,6 +77,7 @@
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Kembali</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -83,6 +90,9 @@
                             <td><?= $row['tanggal_pinjam'] ?></td>
                             <td><?= $row['tanggal_kembali'] ?></td>
                             <td><?= $row['status'] ?></td>
+                            <td>
+                                <a href="delete.php?id=<?= $row['id'] ?>" class="btn btn-danger">Delete</a>
+                            </td>
                         </tr>
                         <?php } ?>
                     </tbody>
@@ -92,6 +102,9 @@
         } else {
             echo "<div class='alert alert-info d-flex justify-content-center align-items-center' style='height: 100vh; background-color:#FC5D8C; color: black; font-size: larger;'>
                     <p>No Data Found.</p>
+                </div>";
+                echo "<div class='alert alert-info d-flex justify-content-center align-items-center' style='height: 100vh; background-color:#FC5D8C; color: black; font-size: larger;'>
+                    <p>$message</p>
                 </div>";
         }
     ?>

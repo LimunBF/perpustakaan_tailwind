@@ -2,7 +2,7 @@
 session_start();
 ?>
 <?php
-require_once '../../Connection/DBConnection.php';
+include '../../Connection/DBConnection.php';
 include 'BookCRUD.php';
 ?>
 
@@ -33,23 +33,17 @@ include 'BookCRUD.php';
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="HomeAdminLay.php">Beranda</a>
+                            <a class="nav-link" href="HomeAdminLay.php">Beranda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="">Penambahan Buku</a>
+                            <a class="nav-link active"  aria-current="page" href="RegisterBook.php">Penambahan Buku</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/perpustakaan_tailwind/Components/Php/Login.php">Riwayat
-                                Peminjaman</a>
+                            <a class="nav-link" href="RiwayatPinjamAdmin.php">Riwayat Peminjaman</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/perpustakaan_tailwind/Components/Php/User/HomeLay.php">Landing Page</a>
+                            <a class="nav-link" href="../User/HomeLay.php">LogOut</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/perpustakaan_tailwind/Components/Php/LoginAdmin.php">Login
-                                Admin</a>
-                        </li>
-                        
                     </ul>
                     <span class="navbar-text pe-4 font-nav-admin" style="font-size:large">
                         Admin :
@@ -64,9 +58,12 @@ include 'BookCRUD.php';
         </nav>
     </section>
     <div class="container">
-        <h1 class="text-center text-white pt-3 pb-2">DAFTAR BUKU</h1>
-        <table class="table table-striped table-bordered ">
-            <thead class=>
+        <div class="column">
+            <h1 class="text-center text-white pt-3 pb-2">DAFTAR BUKU</h1>
+            <button class="btn btn-primary pb-2" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Buku</button>
+        </div>
+        <table class="mt-3 table table-striped table-bordered " style="padding: 10px 20px; min-height: 70vh; max-height: 85vh; overflow-y: auto;">
+            <thead>
                 <tr>
                     <th>ISBN</th>
                     <th>JUDUL</th>
@@ -80,7 +77,7 @@ include 'BookCRUD.php';
             </thead>
             <tbody>
                 <?php
-                $query = "SELECT * FROM books LIMIT 20";
+                $query = "SELECT * FROM books";
                 $result = mysqli_query($con, $query);
 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -214,12 +211,11 @@ include 'BookCRUD.php';
                     </div>
                     <div class="modal-body">
                         <p>Apakah Anda yakin ingin menghapus buku ini?</p>
-                        <button type="button" class="btn btn-danger" id="deleteButton">Hapus</button>
+                        <button type="button" class="btn btn-danger" id="deleteButton" data-book-id="">Hapus</button>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Tambah Buku</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -257,7 +253,7 @@ include 'BookCRUD.php';
             };
             xhr.send('action=add&isbn=' + encodeURIComponent(isbn) + '&judul=' + encodeURIComponent(judul) + '&penulis=' + encodeURIComponent(penulis) + '&genre=' + encodeURIComponent(genre) + '&publisher=' + encodeURIComponent(publisher) + '&tahun=' + encodeURIComponent(tahun) + '&jumlah=' + encodeURIComponent(jumlah));
         });
-
+        
         // Edit button click event handler
         document.querySelectorAll('.btn-primary').forEach(button => {
             button.addEventListener('click', function (event) {
@@ -282,36 +278,47 @@ include 'BookCRUD.php';
             });
         });
 
-        // Edit form submission handler
         document.getElementById('editForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            var bookId = document.getElementById('editModal').getAttribute('data-book-id');
             var formData = new FormData(this);
             formData.append('action', 'edit');
-            formData.append('bookId', bookId);
+
+            console.log('Form data:', formData);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'BookCRUD.php', true);
             xhr.onload = function () {
                 if (xhr.status === 200) {
+                    console.log('Edit successful:', xhr.responseText);
                     location.reload();
+                } else {
+                    console.error('Edit failed:', xhr.responseText);
                 }
             };
             xhr.send(formData);
         });
 
-        // Delete button click handler
-        document.getElementById('deleteButton').addEventListener('click', function () {
-            var bookId = document.getElementById('deleteModal').getAttribute('data-book-id');
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'BookCRUD.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    location.reload();
-                }
-            };
-            xhr.send('action=delete&bookId=' + encodeURIComponent(bookId));
+        document.querySelectorAll('.btn-danger').forEach(button => {
+            button.addEventListener('click', function () {
+                var bookId = button.getAttribute('data-book-id');
+                var formData = new FormData();
+                formData.append('action', 'delete');
+                formData.append('bookId', bookId);
+
+                console.log('Delete form data:', formData);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', 'BookCRUD.php', true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        console.log('Delete successful:', xhr.responseText);
+                        location.reload();
+                    } else {
+                        console.error('Delete failed:', xhr.responseText);
+                    }
+                };
+                xhr.send(formData);
+            });
         });
     </script>
 </body>

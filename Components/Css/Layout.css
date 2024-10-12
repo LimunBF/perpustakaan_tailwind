@@ -82,3 +82,10 @@
     color: white;
     border-radius: 0px; /* Rounded corners for modals */
 }
+.bagian {
+    padding: 20px;
+}
+
+.colom{
+    margin-bottom: 20px;
+}

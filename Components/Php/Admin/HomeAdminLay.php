@@ -37,13 +37,10 @@ session_start();
                         <a class="nav-link" href="RegisterBook.php">Penambahan Buku</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/perpustakaan_tailwind/Components/Php/Login.php">Riwayat Peminjaman</a>
+                        <a class="nav-link" href="RiwayatPinjamAdmin.php">Riwayat Peminjaman</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/perpustakaan_tailwind/Components/Php/LoginAdmin.php">Login Admin</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/perpustakaan_tailwind/Components/Php/User/HomeLay.php">Landing Page</a>
+                        <a class="nav-link" href="../User/HomeLay.php">LogOut</a>
                     </li>
                 </ul>
                 <span class="navbar-text pe-4 font-nav-admin" style="font-size: large;">
@@ -55,7 +52,7 @@ session_start();
     </nav>
 
     <!-- Main Content -->
-    <section class="container-fluid pt-3">
+    <section class="container-fluid pt-3 bagian">
         <div class="row justify-content-center">
             <?php
             include '../../Connection/DBConnection.php';
@@ -71,7 +68,7 @@ session_start();
 
             foreach ($genres as $genre) {
             ?>
-                <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-4 colom">
                     <div class="bg-light p-3 rounded">
                         <h5 class="text-center genre-color"  ><?php echo $genre; ?></h5>
                         <table class="table table-bordered">
