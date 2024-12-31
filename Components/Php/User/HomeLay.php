@@ -33,7 +33,7 @@
     <nav class="navbar navbar-expand-lg gradient-custom-nav sticky-top">
         <div class="container-fluid justify-content-between">
         <a class="navbar-brand fw-bold">
-            <i class="bi bi-book icon-color" style="margin-left:10px; margin-right: 8px;"></i> Perpustakaan Kang Lee Moon
+            <i class="bi bi-book icon-color" style="margin-left:10px; margin-right: 8px;"></i> Perpustakaan Kang
         </a>
         <span class="navbar-divider" style="border-left: 1px solid white; height: 30px; margin: auto 15px;"></span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
